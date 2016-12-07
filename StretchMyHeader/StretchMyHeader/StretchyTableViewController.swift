@@ -66,7 +66,7 @@ class StretchyTableViewController: UITableViewController {
     
     func currentDateFormatted()
     {
-        dateFormatter.dateFormat = "MMM dd yyyy"
+        dateFormatter.dateFormat = "MMMM dd"
         let currentDate = NSDate()
         let convertedDateString = dateFormatter.string(from: currentDate as Date)
         self.currentDateLabel.text = convertedDateString
