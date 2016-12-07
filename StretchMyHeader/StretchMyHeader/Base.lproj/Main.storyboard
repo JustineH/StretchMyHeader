@@ -88,6 +88,7 @@
                     </tableView>
                     <connections>
                         <outlet property="currentDateLabel" destination="Fcx-Eq-srd" id="n31-dZ-LPl"/>
+                        <outlet property="headerView" destination="dwq-nZ-NrX" id="WNP-98-B6n"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x7r-BQ-piP" userLabel="First Responder" sceneMemberID="firstResponder"/>
