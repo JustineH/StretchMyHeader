@@ -25,8 +25,8 @@
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-header" translatesAutoresizingMaskIntoConstraints="NO" id="dwq-nZ-NrX">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="December 6, 2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fcx-Eq-srd">
-                                    <rect key="frame" x="24" y="17" width="199" height="29"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fcx-Eq-srd">
+                                    <rect key="frame" x="25" y="17" width="136" height="29"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -35,7 +35,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="dwq-nZ-NrX" secondAttribute="trailing" id="8XZ-Hj-Mku"/>
-                                <constraint firstItem="dwq-nZ-NrX" firstAttribute="leading" secondItem="Fcx-Eq-srd" secondAttribute="trailing" constant="-223" id="QBY-Jk-fs7"/>
+                                <constraint firstItem="dwq-nZ-NrX" firstAttribute="leading" secondItem="Fcx-Eq-srd" secondAttribute="trailing" constant="-161" id="QBY-Jk-fs7"/>
                                 <constraint firstItem="dwq-nZ-NrX" firstAttribute="top" secondItem="FHd-Mk-BOI" secondAttribute="top" id="Qer-Qd-crO"/>
                                 <constraint firstAttribute="bottom" secondItem="dwq-nZ-NrX" secondAttribute="bottom" id="gtP-hB-f4W"/>
                                 <constraint firstItem="dwq-nZ-NrX" firstAttribute="top" secondItem="Fcx-Eq-srd" secondAttribute="bottom" constant="-46" id="tDW-bM-STp"/>
@@ -86,6 +86,9 @@
                             <outlet property="delegate" destination="n5w-CN-qNE" id="lOM-S6-kjb"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="currentDateLabel" destination="Fcx-Eq-srd" id="n31-dZ-LPl"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x7r-BQ-piP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

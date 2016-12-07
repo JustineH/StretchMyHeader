@@ -8,9 +8,16 @@
 
 import UIKit
 
+private let cellIdentifier = "kTableViewCell"
+private let kTableHeaderHeight: CGFloat = 300.0
+
 class StretchyTableViewController: UITableViewController {
     
-    let cellIdentifier = "kTableViewCell"
+    var headerView: UIView!
+    let currentDate = NSDate()
+    let dateFormatter = DateFormatter()
+    
+    @IBOutlet weak var currentDateLabel: UILabel!
     
     let items = [
         NewsItem(category: .World, summary: "Climate change protests, divestments meet fossil fuels realities"),
@@ -24,13 +31,49 @@ class StretchyTableViewController: UITableViewController {
     ]
 
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100
+        
+        headerView = tableView.tableHeaderView
+        tableView.tableHeaderView = nil
+        tableView.addSubview(headerView)
+        
+        tableView.contentInset = UIEdgeInsets(top: kTableHeaderHeight, left: 0, bottom: 0, right: 0)
+        tableView.contentOffset = CGPoint(x: 0, y: -kTableHeaderHeight)
+        updateHeaderView()
+        
+        currentDateFormatted()
+    }
+    
+    func updateHeaderView()
+    {
+        var headerRect = CGRect(x: 0, y: -kTableHeaderHeight, width: tableView.bounds.width, height: kTableHeaderHeight)
+        if tableView.contentOffset.y < -kTableHeaderHeight
+        {
+            headerRect.origin.y = tableView.contentOffset.y
+            headerRect.size.height = -tableView.contentOffset.y
+        }
+        headerView.frame = headerRect
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView)
+    {
+        updateHeaderView()
+    }
+    
+    func currentDateFormatted()
+    {
+        dateFormatter.dateFormat = "MMM dd yyyy"
+        let currentDate = NSDate()
+        let convertedDateString = dateFormatter.string(from: currentDate as Date)
+        self.currentDateLabel.text = convertedDateString
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
